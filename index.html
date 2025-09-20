@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://unpkg.com/@google/generative-ai/dist/files/generative-ai.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Instagram</h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Página inicial</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-search"></i>
+                        <span>Pesquisa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-compass"></i>
+                        <span>Explorar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-film"></i>
+                        <span>Reels</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-comment-dots"></i>
+                        <span>Mensagens</span>
+                        <span class="message-count">5+</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-heart"></i>
+                        <span>Notificações</span>
+                        <span class="notification-dot"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-plus-square"></i>
+                        <span>Criar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <img src="https://picsum.photos/32/32?random=user" alt="Perfil" class="profile-pic-nav">
+                        <span>Perfil</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-more">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-bars"></i>
+                    <span>Mais</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="stories-container">
+                <div class="stories-scroll">
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=1" alt="Story 1">
+                        </div>
+                        <span class="story-username">pessoa_01</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=2" alt="Story 2">
+                        </div>
+                        <span class="story-username">usuario_02</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=3" alt="Story 3">
+                        </div>
+                        <span class="story-username">profile_03</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=4" alt="Story 4">
+                        </div>
+                        <span class="story-username">conta_04</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=5" alt="Story 5">
+                        </div>
+                        <span class="story-username">user_05</span>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-avatar">
+                            <img src="https://picsum.photos/64/64?random=6" alt="Story 6">
+                        </div>
+                        <span class="story-username">perfil_06</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="posts-container">
+                <article class="post" data-post-id="1">
+                    <header class="post-header">
+                        <div class="post-user-info">
+                            <img src="https://picsum.photos/40/40?random=10" alt="User" class="post-avatar">
+                            <div class="user-details">
+                                <span class="username">fotografo_oficial</span>
+                                <span class="verified-badge">✓</span>
+                                <span class="post-time">2 h</span>
+                            </div>
+                        </div>
+                        <button class="post-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </header>
+                    
+                    <div class="post-image">
+                        <img src="https://picsum.photos/600/600?random=100" alt="Post content">
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="primary-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-comment"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <button class="action-btn save-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-info">
+                        <div class="post-likes">
+                            <span>Curtido por <strong>usuario_123</strong> e <strong>outras 1.234 pessoas</strong></span>
+                        </div>
+                        <div class="post-caption">
+                            <span class="username">fotografo_oficial</span>
+                            <span class="caption-text">Uma bela paisagem capturada durante o pôr do sol 🌅 #fotografia #natureza #paisagem</span>
+                        </div>
+                        <div class="post-comments">
+                            <button class="view-comments">Ver todos os 89 comentários</button>
+                            <div class="comment">
+                                <span class="username">amante_natureza</span>
+                                <span>Que foto incrível! 😍</span>
+                            </div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Adicione um comentário..." class="comment-input">
+                            <button class="comment-post">Publicar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-post-id="2">
+                    <header class="post-header">
+                        <div class="post-user-info">
+                            <img src="https://picsum.photos/40/40?random=11" alt="User" class="post-avatar">
+                            <div class="user-details">
+                                <span class="username">chef_culinaria</span>
+                                <span class="post-time">5 h</span>
+                            </div>
+                        </div>
+                        <button class="post-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </header>
+                    
+                    <div class="post-image">
+                        <img src="https://picsum.photos/600/600?random=101" alt="Post content">
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="primary-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-comment"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <button class="action-btn save-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-info">
+                        <div class="post-likes">
+                            <span>Curtido por <strong>gourmet_lover</strong> e <strong>outras 567 pessoas</strong></span>
+                        </div>
+                        <div class="post-caption">
+                            <span class="username">chef_culinaria</span>
+                            <span class="caption-text">Novo prato em desenvolvimento na cozinha! O que vocês acham? 👨‍🍳 #gastronomia #chef #culinaria</span>
+                        </div>
+                        <div class="post-comments">
+                            <button class="view-comments">Ver todos os 32 comentários</button>
+                            <div class="comment">
+                                <span class="username">food_blogger</span>
+                                <span>Parece delicioso! Receita? 🤤</span>
+                            </div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Adicione um comentário..." class="comment-input">
+                            <button class="comment-post">Publicar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post" data-post-id="3">
+                    <header class="post-header">
+                        <div class="post-user-info">
+                            <img src="https://picsum.photos/40/40?random=12" alt="User" class="post-avatar">
+                            <div class="user-details">
+                                <span class="username">viajante_mundo</span>
+                                <span class="post-time">1 d</span>
+                            </div>
+                        </div>
+                        <button class="post-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </header>
+                    
+                    <div class="post-image">
+                        <img src="https://picsum.photos/600/600?random=102" alt="Post content">
+                    </div>
+                    
+                    <div class="post-actions">
+                        <div class="primary-actions">
+                            <button class="action-btn like-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-comment"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <button class="action-btn save-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-info">
+                        <div class="post-likes">
+                            <span>Curtido por <strong>aventureiro_2024</strong> e <strong>outras 892 pessoas</strong></span>
+                        </div>
+                        <div class="post-caption">
+                            <span class="username">viajante_mundo</span>
+                            <span class="caption-text">Explorando novos destinos! Cada viagem é uma nova história ✈️ #travel #adventure #explore</span>
+                        </div>
+                        <div class="post-comments">
+                            <button class="view-comments">Ver todos os 156 comentários</button>
+                            <div class="comment">
+                                <span class="username">travel_buddy</span>
+                                <span>Onde é esse lugar incrível? 📍</span>
+                            </div>
+                        </div>
+                        <div class="add-comment">
+                            <input type="text" placeholder="Adicione um comentário..." class="comment-input">
+                            <button class="comment-post">Publicar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="user-profile">
+                <img src="https://picsum.photos/56/56?random=user" alt="Seu perfil" class="profile-pic">
+                <div class="profile-info">
+                    <span class="username">seu_usuario</span>
+                    <span class="full-name">Seu Nome Completo</span>
+                </div>
+                <button class="switch-btn">Mudar</button>
+            </div>
+
+            <div class="suggestions-section">
+                <div class="suggestions-header">
+                    <span class="suggestions-title">Sugestões para você</span>
+                    <button class="see-all">Ver tudo</button>
+                </div>
+
+                <div class="suggestions-list">
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/44/44?random=20" alt="Sugestão 1" class="suggestion-avatar">
+                        <div class="suggestion-info">
+                            <span class="suggestion-username">usuario_sugerido1</span>
+                            <span class="suggestion-reason">Seguido por amigo_comum</span>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/44/44?random=21" alt="Sugestão 2" class="suggestion-avatar">
+                        <div class="suggestion-info">
+                            <span class="suggestion-username">perfil_interessante</span>
+                            <span class="suggestion-reason">Popular</span>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/44/44?random=22" alt="Sugestão 3" class="suggestion-avatar">
+                        <div class="suggestion-info">
+                            <span class="suggestion-username">conta_criativa</span>
+                            <span class="suggestion-reason">Sugerido para você</span>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/44/44?random=23" alt="Sugestão 4" class="suggestion-avatar">
+                        <div class="suggestion-info">
+                            <span class="suggestion-username">artista_digital</span>
+                            <span class="suggestion-reason">Seguido por varios_amigos</span>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </div>
+                    
+                    <div class="suggestion-item">
+                        <img src="https://picsum.photos/44/44?random=24" alt="Sugestão 5" class="suggestion-avatar">
+                        <div class="suggestion-info">
+                            <span class="suggestion-username">influencer_tech</span>
+                            <span class="suggestion-reason">Novos do Facebook</span>
+                        </div>
+                        <button class="follow-btn">Seguir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-info">
+                <div class="footer-links">
+                    <a href="#">Sobre</a> · <a href="#">Ajuda</a> · <a href="#">Imprensa</a> · <a href="#">API</a> · <a href="#">Carreiras</a> ·<br>
+                    <a href="#">Privacidade</a> · <a href="#">Termos</a> · <a href="#">Localizações</a> · <a href="#">Idioma</a> ·<br>
+                    <a href="#">Meta Verified</a>
+                </div>
+                <div class="copyright">
+                    © 2025 Instagram Clone
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <button class="chatbot-fab">
+        <i class="fas fa-shield-alt"></i>
+    </button>
+
+    <div class="chatbot-popup">
+        <div class="chatbot-header">
+            <h3>Agente de Marca</h3>
+            <button class="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot-message">
+                <p>Olá! Sou sua agente de marca. Como posso ajudar a verificar a autenticidade hoje?</p>
+            </div>
+            </div>
+        <div class="chatbot-footer">
+            <button class="chat-option-btn" id="verify-company">Verificar Empresa</button>
+            <button class="chat-option-btn" id="verify-page">Verificar Página</button>
+        </div>
+    </div>
+
+    <div class="scan-overlay">
+        <div class="scan-line"></div>
+    </div>
+
+    <script type="module" src="chatbot.js"></script>
+</body>
+</html>
