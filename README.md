@@ -56,7 +56,7 @@ echofy/
 │   ├── postshome/            # Posts da home
 │   ├── postsmonks/           # Posts do perfil Monks
 │   └── postsnetflix/         # Posts do perfil Netflix
-├── influencerfake/           # Página falsa de influenciador
+├── influencerfake/           # Perfil fake da Netflix (instagram)
 │   ├── influencerfake.html
 │   ├── influencerfake-style.css
 │   ├── influencerfake-script.js
@@ -66,7 +66,7 @@ echofy/
 │   ├── monksfake-style.css
 │   ├── monksfake-script.js
 │   └── monksfake-config.js
-├── netflix/                  # Página falsa Netflix
+├── netflix/                  # Página web fake Netflix
 │   ├── netflix-promo.html
 │   ├── netflix-promo.css
 │   └── netflix-promo.js
@@ -76,7 +76,7 @@ echofy/
 ## 🧩 Módulos e Páginas
 
 - **Instagram Clone** (`index.html`): Interface principal, simula feed, stories, curtidas e comentários.
-- **Influencer Fake** (`influencerfake/`): Página de influenciador com posts e stories falsos.
+- **Influencer Fake** (`influencerfake/`): Perfil fake da Netflix no Instagram.
 - **Monks Fake** (`monksfake/`): Página de agência fake, com posts e destaques.
 - **Netflix Promo Fake** (`netflix/`): Página promocional falsa da Netflix, simulando golpes comuns.
 - **Echofy** (`chatbot.js`): Detecta URLs suspeitas e exibe alertas educativos.
