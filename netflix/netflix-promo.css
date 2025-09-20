@@ -310,3 +310,260 @@ section{
   .email-form input { width: 100%; }
   .logo { height: 36px; }
 }
+
+/* ===== CHATBOT POPUP STYLES ===== */
+
+/* Botão Flutuante do Chatbot (FAB) */
+.chatbot-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Janela do Chatbot */
+.chatbot-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none; /* Começa escondido */
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.chatbot-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.chatbot-body {
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: #e9e9eb;
+    align-self: flex-start;
+    color: #333;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.chatbot-footer {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-option-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #007bff;
+    background-color: white;
+    color: #007bff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-option-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilos para a resposta formatada do Chatbot */
+.chat-message p {
+    margin: 0; /* Remove margem padrão do parágrafo */
+}
+
+/* ===== SCAN OVERLAY STYLES ===== */
+
+/* Efeito de Scan */
+.scan-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 123, 255, 0.1);
+    z-index: 1001;
+    display: none; /* Começa escondido */
+    overflow: hidden;
+}
+
+.scan-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #007bff;
+    box-shadow: 0 0 10px #007bff;
+    animation: scan-animation 2s ease-in-out;
+}
+
+@keyframes scan-animation {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* ===== PHISHING ALERT POPUP STYLES ===== */
+
+/* Container do popup de alerta */
+#phishing-alert-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    pointer-events: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe para esconder o popup */
+.phishing-alert-hidden {
+    display: none !important;
+}
+
+/* O popup em si */
+#phishing-alert-popup {
+    background-color: #fff;
+    color: #333;
+    padding: 15px 40px 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: block;
+    border-left: 5px solid #dc3545;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: auto;
+    position: relative;
+    width: 300px;
+    min-height: 60px;
+    margin: 0;
+}
+
+#phishing-alert-popup p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Botão de fechar (X) */
+#phishing-alert-close-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+#phishing-alert-close-btn:hover {
+    color: #333;
+}
+
+/* Força o posicionamento correto do popup */
+body #phishing-alert-overlay {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    margin: 0 !important;
+}
+
+body #phishing-alert-popup {
+    margin: 0 !important;
+    position: relative !important;
+}
+
+/* ===== RESPONSIVE STYLES FOR POPUPS ===== */
+@media (max-width: 480px) {
+    .chatbot-popup {
+        width: 300px;
+        right: 15px;
+        bottom: 80px;
+    }
+    
+    .chatbot-fab {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    #phishing-alert-overlay {
+        top: 10px;
+        right: 10px;
+    }
+    
+    #phishing-alert-popup {
+        width: 250px;
+        padding: 12px 35px 12px 15px;
+    }
+    
+    #phishing-alert-popup p {
+        font-size: 14px;
+    }
+}
