@@ -136,17 +136,26 @@ function updateProfile(newConfig) {
 
 // Funcionalidade do popup de phishing
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded - monksfake-script.js');
     const phishingCloseBtn = document.getElementById('phishing-alert-close-btn');
     const phishingOverlay = document.getElementById('phishing-alert-overlay');
     
+    console.log('phishingCloseBtn:', phishingCloseBtn);
+    console.log('phishingOverlay:', phishingOverlay);
+    
     if (phishingCloseBtn && phishingOverlay) {
-        phishingCloseBtn.addEventListener('click', function() {
+        phishingCloseBtn.addEventListener('click', function(e) {
+            console.log('Close button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
             phishingOverlay.classList.add('phishing-alert-hidden');
+            console.log('Added phishing-alert-hidden class');
         });
         
         // Also hide when clicking the overlay (optional)
         phishingOverlay.addEventListener('click', function(e) {
             if (e.target === phishingOverlay) {
+                console.log('Overlay clicked!');
                 phishingOverlay.classList.add('phishing-alert-hidden');
             }
         });
@@ -154,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && !phishingOverlay.classList.contains('phishing-alert-hidden')) {
+                console.log('Escape key pressed!');
                 phishingOverlay.classList.add('phishing-alert-hidden');
             }
         });

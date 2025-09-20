@@ -1000,8 +1000,7 @@ input:focus {
 
 /* Classe para esconder o popup */
 .phishing-alert-hidden {
-    opacity: 0;
-    pointer-events: none;
+    display: none !important;
 }
 
 #phishing-alert-popup p {
