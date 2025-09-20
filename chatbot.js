@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fakeUrlDatabase = [
         "http://127.0.0.1:5500/monksfake/monksfake.html",
         "https://www.facebok.com/monksinbrazil.store/",
-        "http://monks-vagas.xyz/oportunidade-imperdivel"
+        "http://monks-vagas.xyz/oportunidade-imperdivel",
+        "http://127.0.0.1:5500/netflix/netflix-promo.html"
     ];
 
     const alertOverlay = document.getElementById('phishing-alert-overlay');
@@ -18,7 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkCurrentPage = () => {
         const currentPageUrl = window.location.href;
         if (fakeUrlDatabase.includes(currentPageUrl) && alertOverlay) {
-            alertMessage.textContent = 'Esse link foi constado como suspeito na nossa base de dados.';
+            // Personalizar mensagem baseada na página
+            if (currentPageUrl.includes('netflix')) {
+                alertMessage.textContent = 'ALERTA: Página suspeita da Netflix detectada. Promoções não oficiais podem ser golpes.';
+            } else {
+                alertMessage.textContent = 'Esse link foi constatado como suspeito na nossa base de dados.';
+            }
             alertOverlay.classList.remove('phishing-alert-hidden');
             clearTimeout(alertTimeout); 
             alertTimeout = setTimeout(() => {
@@ -45,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const verifyPageBtn = document.getElementById('verify-page');
     const scanOverlay = document.querySelector('.scan-overlay');
 
-    const GEMINI_API_KEY = 'AIzaSyDeiAgAXBbaaRreDVVDhPs8A2U3wjK7HkU';
+    const GEMINI_API_KEY = 'AIzaSyAZm-0yuTedNhGBIa4RfnytvtIjwcRiKt0';
 
     const formatResponseToHtml = (text) => {
         let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -125,6 +131,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 **Evidências:** 
                 * [Evidência 1] 
                 * [Evidência 2]`;
+            } else if (pageUrl.includes('netflix') || pageHtmlSnippet.toLowerCase().includes('netflix')) {
+                prompt = `Sua tarefa é atuar como um especialista em verificação de marcas, analisando a LEGITIMIDADE EMPRESARIAL desta página Netflix.
+                **Informação-Chave (A Verdade):** A Netflix oficial é "Netflix Brasil" com domínio "netflix.com". A empresa nunca oferece brindes físicos em promoções online.
+                **Regras da Análise EMPRESARIAL:**
+                1.  **FOCO NO CONTEÚDO, NÃO NA ORIGEM:** Ignore a URL da página se ela for local ('127.0.0.1', 'localhost'). Sua análise deve se basear no conteúdo da página (HTML), não no endereço de teste.
+                2.  **VERIFICAÇÃO DE MARCA:** Compare as práticas comerciais mostradas com as oficiais da Netflix.
+                3.  **OFERTAS SUSPEITAS:** A Netflix oficial nunca oferece brindes físicos, descontos extremos ou promoções que exigem dados pessoais imediatos.
+                4.  **EVIDÊNCIA OBRIGATÓRIA:** SEMPRE inclua como evidência que "O link não é o domínio oficial netflix.com da Netflix"
+                Dados da Página: URL: "${pageUrl}", HTML: "${pageHtmlSnippet}"
+                Formato de Resposta (OBRIGATÓRIO E SUCINTO):
+                **Análise:** Empresa/Marca Falsa Netflix.
+                **Evidências:** 
+                * O link não é o domínio oficial netflix.com da Netflix
+                * [Evidência 2 - ex: Oferece brindes físicos que a Netflix real nunca dá] 
+                * [Evidência 3 - ex: Práticas comerciais não oficiais da Netflix]`;
             } else {
                 prompt = `Sua tarefa é atuar como um detetive digital, realizando uma análise de segurança geral em uma página web.
                 **Regras da Análise Geral:**
@@ -168,6 +189,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     **Evidências:** 
                     * [Evidência 1] 
                     * [Evidência 2]`;
+                } else if (pageUrl.includes('netflix') || pageHtmlSnippet.toLowerCase().includes('netflix')) {
+                    // MODO NETFLIX - análise técnica da página
+                    prompt = `Sua tarefa é atuar como um analista de segurança web, fazendo uma ANÁLISE TÉCNICA VISUAL desta página que imita a Netflix.
+                    **Informação-Chave (A Verdade):** A Netflix oficial é "netflix.com" com design, UX e elementos técnicos específicos e padronizados.
+                    **Regras da Análise TÉCNICA:**
+                    1.  **FOCO NO CONTEÚDO, NÃO NA ORIGEM:** Ignore a URL da página se ela for local ('127.0.0.1', 'localhost'). Sua análise deve se basear no conteúdo da página (HTML), não no endereço de teste.
+                    2.  **ANÁLISE DE DESIGN:** Compare elementos visuais, layout, tipografia e estrutura com a Netflix oficial.
+                    3.  **ELEMENTOS TÉCNICOS:** Verifique formulários, campos de entrada, botões e fluxos de pagamento suspeitos.
+                    4.  **INDICADORES VISUAIS:** Procure por erros de design, qualidade de imagens, inconsistências visuais.
+                    5.  **EVIDÊNCIA OBRIGATÓRIA:** SEMPRE inclua como evidência que "O link não é o domínio oficial netflix.com da Netflix"
+                    Dados da Página: URL: "${pageUrl}", HTML: "${pageHtmlSnippet}"
+                    Formato de Resposta (OBRIGATÓRIO E SUCINTO):
+                    **Análise:** Página Técnicamente Falsa - Imitação Netflix.
+                    **Evidências:** 
+                    * O link não é o domínio oficial netflix.com da Netflix
+                    * [Evidência 2 - ex: Design inconsistente com padrões Netflix, maximo 20 palavras] 
+                    * [Evidência 3 - ex: Formulários de pagamento suspeitos não oficiais, maximo 20 palavras]`;
                 } else {
                     // MODO GERAL com regra reforçada
                     prompt = `Sua tarefa é atuar como um detetive digital, realizando uma análise de segurança geral.

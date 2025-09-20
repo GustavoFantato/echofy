@@ -7,7 +7,9 @@
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="netflix-promo.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="/assets/imgs/netflix-icon.png" />
+  <script src="https://unpkg.com/@google/generative-ai/dist/files/generative-ai.js"></script>
 </head>
 
 <body>
@@ -91,5 +93,44 @@
             <button type="submit">Assinar</button>
         </form>
     </section>
+
+    <!-- Chatbot FAB Button -->
+    <button class="chatbot-fab">
+        <i class="fas fa-shield-alt"></i>
+    </button>
+
+    <!-- Chatbot Popup -->
+    <div class="chatbot-popup">
+        <div class="chatbot-header">
+            <h3>Agente de Marca</h3>
+            <button class="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot-message">
+                <p>Olá! Sou sua agente de marca. Como posso ajudar a verificar a autenticidade hoje?</p>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <button class="chat-option-btn" id="verify-company">Verificar Empresa</button>
+            <button class="chat-option-btn" id="verify-page">Verificar Página</button>
+        </div>
+    </div>
+
+    <!-- Scan Overlay -->
+    <div class="scan-overlay">
+        <div class="scan-line"></div>
+    </div>
+
+    <!-- Phishing Alert Popup -->
+    <div id="phishing-alert-overlay">
+        <div id="phishing-alert-popup">
+            <p id="phishing-alert-message">Esse link foi constatado como suspeito na nossa base de dados.</p>
+            <button id="phishing-alert-close-btn">&times;</button>
+        </div>
+    </div>
+
+    <script type="module" src="../chatbot.js"></script>
+    <script src="../script.js"></script>
+    <script src="netflix-promo.js"></script>
 </body>
 </html>
