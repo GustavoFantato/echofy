@@ -44,7 +44,7 @@ O Echofy foi criado para conscientizar sobre golpes digitais, ensinar a identifi
 
 ## 📚 Créditos
 
-- Desenvolvido por 
+Desenvolvido por:
  - Gustavo Fantato Fernandes
  - Renan da Silva Blasques 
  - Felipe Galvão Prazeres
