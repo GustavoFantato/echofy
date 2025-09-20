@@ -513,6 +513,7 @@ body {
     font-size: 11px;
 }
 
+
 /* Ajustes para imagens */
 img {
     max-width: 100%;
@@ -664,6 +665,7 @@ img {
         align-items: flex-start;
     }
 }
+
 
 /* Animações */
 @keyframes likeAnimation {
