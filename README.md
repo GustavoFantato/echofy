@@ -35,7 +35,7 @@ echofy/
 ## 💡 Como Usar
 
 1. Acesse a réplica do instagram pelo link: https://gustavofantato.github.io/echofy
-2. O Echofy pode ser ativado pelo ícone/flutuante ou por alertas automáticos.
+2. O Echofy pode ser utilizado pelo ícone/flutuante (canto inferior direito) ou por alertas automáticos ao detectar páginas potencialmente falsas.
 3. Solicite uma análise da página ou empresa usando os botões do chatbot.
 4. O Echofy apresentará uma análise detalhada e evidências dos riscos encontrados.
 
