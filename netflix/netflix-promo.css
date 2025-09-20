@@ -1,14 +1,14 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #000;
+    background-color: #141414;
     color: #fff;
 }
 
 .hero {
     position: relative;
     height: 100vh;
-    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/8e1e1b2b-9c7b-4b3c-8f8c-4b6d5c6c6c6c/8e1e1b2b-9c7b-4b3c-8f8c-4b6d5c6c6c6c.jpg') center/cover no-repeat;
+    background: url('/assets/imgs/fundonetflix.png') center/cover no-repeat;
 }
 
 .overlay {
@@ -17,7 +17,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Efeito escurecido */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,9 +88,11 @@ body {
 }
 
 .promo-section {
-    padding: 50px;
+    padding: 15px;
     text-align: center;
-    background: #141414;
+    background: #e50914; /* Fundo degradê vermelho */
+    margin: 5px auto; /* Centralizar e evitar ocupar todo o site */
+    max-width: 50%; /* Limitar largura */
 }
 
 .promo-section h2 {
@@ -131,4 +133,45 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Setor Em alta */
+.trending-section {
+    padding: 50px;
+    background: #141414;
+    text-align: center;
+}
+
+.trending-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.trending-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.trending-item {
+    position: relative;
+    width: 150px;
+    height: 225px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.trending-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.trending-item .rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
 }
