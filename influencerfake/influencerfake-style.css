@@ -655,13 +655,3 @@ img {
         height: 150px; /* Altura reduzida para telas muito pequenas */
     }
 }
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}

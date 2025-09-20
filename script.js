@@ -151,20 +151,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
+            if (!href || href === '#') {
+            e.preventDefault(); // só bloqueia links "falsos"
             
-            // Remover classe active de todos os itens
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
-            });
-            
-            // Adicionar classe active ao item clicado
-            this.closest('.nav-item').classList.add('active');
-            
-            // Simular navegação
-            const linkText = this.querySelector('span')?.textContent || 'Página';
-            showNotification(`Navegando para: ${linkText}`);
         });
+        this.closest('.nav-item').classList.add('active');
+        
+        const linkText = this.querySelector('span')?.textContent || 'Página';
+        showNotification(`Navegando para: ${linkText}`);
+    }
+});
     });
 
     // Funcionalidade de opções do post
