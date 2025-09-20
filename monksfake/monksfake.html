@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>monksinbrazil • Fotos e vídeos do Instagram</title>
     <link rel="stylesheet" href="monksfake-style.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/@google/generative-ai/dist/files/generative-ai.js"></script>
 </head>
 <body>
     <div class="container">
@@ -298,6 +300,32 @@
         </aside>
     </div>
 
+    <button class="chatbot-fab">
+        <i class="fas fa-shield-alt"></i>
+    </button>
+
+    <div class="chatbot-popup">
+        <div class="chatbot-header">
+            <h3>Agente de Marca</h3>
+            <button class="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot-message">
+                <p>Olá! Sou sua agente de marca. Como posso ajudar a verificar a autenticidade hoje?</p>
+            </div>
+            </div>
+        <div class="chatbot-footer">
+            <button class="chat-option-btn" id="verify-company">Verificar Empresa</button>
+            <button class="chat-option-btn" id="verify-page">Verificar Página</button>
+        </div>
+    </div>
+
+    <div class="scan-overlay">
+        <div class="scan-line"></div>
+    </div>
+
+    <script type="module" src="../chatbot.js"></script>
+    <script src="../script.js"></script>
     <script src="monksfake-script.js"></script>
 </body>
 </html>
