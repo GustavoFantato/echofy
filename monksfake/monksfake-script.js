@@ -134,6 +134,32 @@ function updateProfile(newConfig) {
     loadProfile();
 }
 
+// Funcionalidade do popup de phishing
+document.addEventListener('DOMContentLoaded', function() {
+    const phishingCloseBtn = document.getElementById('phishing-alert-close-btn');
+    const phishingOverlay = document.getElementById('phishing-alert-overlay');
+    
+    if (phishingCloseBtn && phishingOverlay) {
+        phishingCloseBtn.addEventListener('click', function() {
+            phishingOverlay.classList.add('phishing-alert-hidden');
+        });
+        
+        // Also hide when clicking the overlay (optional)
+        phishingOverlay.addEventListener('click', function(e) {
+            if (e.target === phishingOverlay) {
+                phishingOverlay.classList.add('phishing-alert-hidden');
+            }
+        });
+        
+        // Hide with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !phishingOverlay.classList.contains('phishing-alert-hidden')) {
+                phishingOverlay.classList.add('phishing-alert-hidden');
+            }
+        });
+    }
+});
+
 // Exportar para uso global
 window.profileConfig = profileConfig;
 window.updateProfile = updateProfile;

@@ -349,6 +349,28 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Funcionalidade do popup de phishing alert
+document.addEventListener('DOMContentLoaded', function() {
+    const phishingCloseBtn = document.getElementById('phishing-alert-close-btn');
+    const phishingOverlay = document.getElementById('phishing-alert-overlay');
+    
+    if (phishingCloseBtn && phishingOverlay) {
+        // Fechar com o botão X
+        phishingCloseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            phishingOverlay.classList.add('phishing-alert-hidden');
+        });
+        
+        // Fechar com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !phishingOverlay.classList.contains('phishing-alert-hidden')) {
+                phishingOverlay.classList.add('phishing-alert-hidden');
+            }
+        });
+    }
+});
+
 // Função para atualizar dados em tempo real (simulado)
 setInterval(() => {
     // Simular atualização de stories ou novos posts
