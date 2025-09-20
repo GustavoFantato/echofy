@@ -120,7 +120,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const pageHtmlSnippet = document.body.innerHTML.substring(0, 5000);
             let prompt;
 
-            if (pageUrl.includes('monks') || pageHtmlSnippet.toLowerCase().includes('monks')) {
+            // PRIORIDADE 1: DETECTAR INDEX.HTML PRIMEIRO (antes das outras condições)
+            if (pageUrl.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html' || pageUrl.endsWith('/') || (!pageUrl.includes('monksfake') && !pageUrl.includes('netflix') && !pageUrl.includes('influencerfake') && pageUrl.includes('raiaHackathon'))) {
+                // CASO ESPECÍFICO PARA INDEX.HTML - Análise do post da Leroy Merlin
+                prompt = `Sua tarefa é atuar como um especialista em detecção de desinformação, analisando um POST ESPECÍFICO sobre "Leroy Merlin fecha 11 lojas".
+                **CONTEXTO DO POST ANALISADO:**
+                - Perfil: "leroimerlim" (suspeito)
+                - Conteúdo: "Leroy Merlin fecha 11 lojas"
+                - Plataforma: Rede social simulando Instagram
+                
+                **Informação-Chave (A Verdade):** A Leroy Merlin oficial usa o nome correto "leroymerlin" em suas redes sociais e possui identidade visual padronizada. Notícias corporativas importantes são sempre divulgadas por canais oficiais de comunicação.
+                
+                **Sua Análise Deve Focar EXCLUSIVAMENTE neste post, NÃO na página web:**
+                1.  **IDENTIDADE VISUAL:** Compare elementos visuais com a identidade oficial da Leroy Merlin.
+                2.  **VERIFICAÇÃO DO PERFIL:** O nome "leroimerlim" é uma alteração fraudulenta do oficial "leroymerlin".
+                3.  **FONTES CONFIÁVEIS:** Esta informação NÃO foi corroborada por canais oficiais.
+                4.  **ANÁLISE DE CONTEÚDO:** Conteúdo suspeito de desinformação corporativa.
+                
+                Formato de Resposta (OBRIGATÓRIO E SUCINTO):
+                **Análise:** Post Fraudulento - Desinformação Leroy Merlin.
+                **Evidências:** 
+                * Nome do perfil alterado de "leroymerlin" para "leroimerlim" (técnica de typosquatting)
+                * Identidade visual inconsistente com padrões oficiais da marca Leroy Merlin
+                * Ausência de confirmação por canais confiáveis de comunicação ou mídia oficial
+                * Conteúdo não encontrado em comunicados oficiais da empresa`;
+            } else if (pageUrl.includes('monks') || pageHtmlSnippet.toLowerCase().includes('monks')) {
                 prompt = `Sua tarefa é atuar como um detetive digital, analisando um perfil que parece ser da marca "monksinbrazil".
                 **Informação-Chave (A Verdade):** A marca oficial e confiável é "monksinbrazil". Use este nome como a única referência correta.
                 **Regras da Análise:**
@@ -177,7 +201,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const pageHtmlSnippet = document.body.innerHTML.substring(0, 5000);
                 let prompt;
 
-                if (pageUrl.includes('monks') || pageHtmlSnippet.toLowerCase().includes('monks')) {
+                // PRIORIDADE 1: DETECTAR INDEX.HTML PRIMEIRO (antes das outras condições)
+                if (pageUrl.includes('index.html') || window.location.pathname === '/' || window.location.pathname === '/index.html' || pageUrl.endsWith('/') || (!pageUrl.includes('monksfake') && !pageUrl.includes('netflix') && !pageUrl.includes('influencerfake') && pageUrl.includes('raiaHackathon'))) {
+                    // CASO ESPECÍFICO PARA INDEX.HTML - Análise técnica visual do post
+                    prompt = `Sua tarefa é atuar como um analista forense digital, fazendo uma ANÁLISE TÉCNICA VISUAL do post sobre "Leroy Merlin fecha 11 lojas".
+                    **CONTEXTO DO POST ANALISADO:**
+                    - Perfil: "leroimerlim" (técnica de typosquatting)
+                    - Conteúdo: "Leroy Merlin fecha 11 lojas"
+                    - Plataforma: Rede social simulando Instagram
+                    
+                    **Informação-Chave (A Verdade):** A Leroy Merlin oficial tem padrões visuais específicos, usa domínios oficiais e o nome correto "leroymerlin" em todas as plataformas.
+                    
+                    **Sua Análise Deve Focar EXCLUSIVAMENTE neste post específico, NÃO na página web:**
+                    1.  **ANÁLISE DE METADADOS:** Examine informações técnicas do perfil fraudulento.
+                    2.  **PADRÕES VISUAIS:** Compare elementos gráficos com padrões oficiais da Leroy Merlin.
+                    3.  **VERIFICAÇÃO TÉCNICA:** Analise a alteração no nome do usuário.
+                    4.  **DETECÇÃO DE MANIPULAÇÃO:** Identifique a técnica de typosquatting utilizada.
+                    
+                    Formato de Resposta (OBRIGATÓRIO E SUCINTO):
+                    **Análise:** Perfil Técnicamente Fraudulento - Leroy Merlin Falso.
+                    **Evidências:** 
+                    * Alteração detectada no username: "leroimerlim" ao invés de "leroymerlin" oficial
+                    * Elementos visuais inconsistentes com identidade corporativa oficial
+                    * Estrutura técnica do perfil não corresponde aos padrões oficiais da marca`;
+                } else if (pageUrl.includes('monks') || pageHtmlSnippet.toLowerCase().includes('monks')) {
                     // MODO ESPECIALISTA com regra reforçada
                     prompt = `Sua tarefa é atuar como um detetive digital, analisando um perfil que parece ser da marca "monksinbrazil".
                     **Informação-Chave (A Verdade):** A marca oficial e confiável é "monksinbrazil".
