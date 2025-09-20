@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "http://127.0.0.1:5500/monksfake/monksfake.html",
         "https://www.facebok.com/monksinbrazil.store/",
         "http://monks-vagas.xyz/oportunidade-imperdivel",
-        "http://127.0.0.1:5500/netflix/netflix-promo.html"
+        "http://127.0.0.1:5500/netflix/netflix-promo.html",
+        "http://127.0.0.1:5501/influencerfake/influencerfake.html"
     ];
 
     const alertOverlay = document.getElementById('phishing-alert-overlay');
