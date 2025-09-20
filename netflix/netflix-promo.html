@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Promoção</title>
+    <link rel="stylesheet" href="netflix-promo.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <nav class="navbar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="logo">
+                <div class="language-select">
+                    <select>
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+                <button class="login-btn">Entrar</button>
+            </nav>
+            <div class="hero-content">
+                <h1>Filmes, séries e muito mais, sem limites</h1>
+                <p>A partir de R$ 20,90. Cancele quando quiser.</p>
+                <p>Quer assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
+                <form class="email-form">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">Vamos lá</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section class="promo-section">
+        <h2>Promoção Nova Temporada Wandinha</h2>
+        <p>Assine a Netflix e ganhe um boneco da mãozinha direto na sua casa!</p>
+    </section>
+    <section class="payment-form">
+        <h2>Assine agora</h2>
+        <form>
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="card">Número do Cartão</label>
+            <input type="text" id="card" name="card" required>
+            
+            <label for="expiry">Data de Validade</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/AA" required>
+            
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required>
+            
+            <button type="submit">Assinar</button>
+        </form>
+    </section>
+</body>
+</html>
