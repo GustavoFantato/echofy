@@ -47,7 +47,6 @@ body {
 .logo h2 {
     font-size: 24px;
     font-weight: bold;
-    font-family: 'Cookie', cursive;
 }
 
 .nav-links {
@@ -102,6 +101,7 @@ body {
     text-align: center;
 }
 
+
 .notification-dot {
     width: 6px;
     height: 6px;
@@ -114,13 +114,23 @@ body {
     margin-top: auto;
 }
 
-/* Conteúdo principal */
 .main-content {
-    margin-left: 245px;
-    flex-grow: 1;
-    max-width: 630px;
+    margin-top: 1vw;
+    margin-left: 30vw; /* espaço da sidebar esquerda */
     padding: 0 20px;
-    margin-right: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza horizontalmente os filhos */
+}
+
+/* Conteúdo principal */
+.main-content-profile {
+    margin-top: 1vw;
+    margin-left: 10vw; /* espaço da sidebar esquerda */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza horizontalmente os filhos */
 }
 
 /* Stories */
@@ -182,10 +192,9 @@ body {
 }
 
 /* Posts */
-.posts-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.posts-container, .stories-container {
+    max-width: 630px; /* mantém a largura fixa */
+    width: 100%; /* se quiser que ocupe todo o max-width */
 }
 
 .post {
@@ -227,10 +236,6 @@ body {
     font-size: 14px;
 }
 
-.verified-badge {
-    color: #1da1f2;
-    font-size: 12px;
-}
 
 .post-time {
     color: #8e8e8e;
