@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Análise de IA</title>
+    
     <link rel="stylesheet" href="dashboard.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai/dist/generative-ai.js"></script>
 </head>
 <body>
 
@@ -20,23 +25,21 @@
                 <h2>Origem das Verificações de Falsidade</h2>
                 <canvas id="origemFalsidadeChart"></canvas>
             </div>
-
             <div class="card metrics-container">
                 <h2>Métricas Gerais</h2>
                 <div class="metric-item">
-                    <span class="metric-value">15,234</span>
+                    <span class="metric-value" id="downloads-metric">15,234</span>
                     <span class="metric-label">Downloads da Extensão</span>
                 </div>
                 <div class="metric-item">
-                    <span class="metric-value">48%</span>
+                    <span class="metric-value" id="usage-metric">48%</span>
                     <span class="metric-label">% de Uso com Base nos Downloads</span>
                 </div>
                 <div class="metric-item">
-                    <span class="metric-value">18%</span>
+                    <span class="metric-value" id="fakes-metric">18%</span>
                     <span class="metric-label">% de Páginas Falsas Detectadas</span>
                 </div>
             </div>
-
             <div class="card links-container">
                 <h2>Últimos Links Falsos Detectados</h2>
                 <ul class="fake-links-list">
@@ -48,6 +51,22 @@
                 </ul>
             </div>
         </main>
+    </div>
+
+    <button class="dashboard-chatbot-fab">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+    <div class="dashboard-chatbot-popup hidden">
+        <div class="chatbot-header">
+            <h3>Assistente do Dashboard</h3>
+            <button class="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body" id="dashboard-chat-body">
+            <div class="chat-message bot-message"><p>Olá! Como posso ajudar a analisar os dados de hoje?</p></div>
+        </div>
+        <div class="chatbot-footer">
+            <button class="chat-option-btn" id="summarize-data-btn">Resumir Dados do Dashboard</button>
+        </div>
     </div>
 
     <script src="dashboard.js"></script>
