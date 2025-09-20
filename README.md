@@ -89,7 +89,7 @@ Desenvolvido por:
  - Gustavo Fantato Fernandes
  - Renan da Silva Blasques 
  - Felipe Galvão Prazeres
- - Rodrigo de Jesus
+ - Rodrigo de Jesus Pereira Gonçalves
    
 **Desenvolvido como proposta de solução do desafio proposto no Hackathon RAIA 2025**
 
