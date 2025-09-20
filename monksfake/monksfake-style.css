@@ -283,8 +283,8 @@ body {
 }
 
 .highlight-avatar {
-    width: 77px;
-    height: 77px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     border: 1px solid var(--border-color);
     padding: 2px;
@@ -341,21 +341,29 @@ body {
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 10px; /* Ajustar o espaçamento entre os posts */
 }
 
 .post-item {
     position: relative;
-    aspect-ratio: 1;
     overflow: hidden;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* Definir altura fixa para os posts */
+    background-color: var(--background-color); /* Fundo para imagens que não carregam */
 }
 
 .post-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s;
+    object-fit: cover; /* Ajustar para cobrir o espaço sem distorção */
+    display: block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-item:hover img {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
 .post-overlay {
@@ -538,34 +546,51 @@ img {
     object-fit: cover;
 }
 
-/* Ajustes para imagens nos destaques */
-.highlight-avatar img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+/* Ajustes para o tamanho das imagens no grid de posts */
+.posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Espaçamento entre os posts */
 }
 
-/* Ajustes para imagens no grid de posts */
+.post-item {
+    height: 300px; /* Altura fixa para os posts */
+    background-color: var(--background-color); /* Fundo para imagens que não carregam */
+}
+
 .post-item img {
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Ajustar para cobrir o espaço sem distorção */
+    display: block;
+}
+
+/* Ajustes para imagens nos destaques */
+.highlight-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    padding: 2px;
+    margin-bottom: 8px;
+}
+
+.highlight-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Responsividade */
 @media (max-width: 1024px) {
-    .right-sidebar {
-        display: none;
-    }
-    
     .main-content {
         max-width: none;
+        margin-left: 0;
     }
 }
 
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 0;
         padding: 20px;
     }
     
@@ -594,6 +619,11 @@ img {
     
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px; /* Espaçamento para telas menores */
+    }
+
+    .post-item {
+        height: 200px; /* Altura reduzida para telas menores */
     }
 }
 
@@ -616,6 +646,21 @@ img {
         gap: 10px;
     }
     
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 5px; /* Espaçamento para telas muito pequenas */
+    }
+
+    .post-item {
+        height: 150px; /* Altura reduzida para telas muito pequenas */
+    }
+}
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
     .posts-grid {
         grid-template-columns: 1fr;
     }
