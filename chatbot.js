@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const verifyPageBtn = document.getElementById('verify-page');
     const scanOverlay = document.querySelector('.scan-overlay');
 
-    const GEMINI_API_KEY = 'AIzaSyAZm-0yuTedNhGBIa4RfnytvtIjwcRiKt0';
+    const GEMINI_API_KEY = 'AIzaSyDU9mfWkp77h6IgP0bfq0JOpSnldGcWeEw';
 
     const formatResponseToHtml = (text) => {
         let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
