@@ -1,7 +1,7 @@
 
 # Echofy
 
-Echofy é um chatbot inteligente para análise de golpes digitais e verificação de páginas suspeitas. Ele atua como assistente de segurança, detectando fraudes, inconsistências e imitações de marcas em ambientes simulados de redes sociais e promoções online.
+Echofy é um chatbot inteligente para análise de golpes digitais e verificação de páginas suspeitas, assim como a verificação de veracidade de notícias. Ele atua como assistente de segurança, detectando fraudes, inconsistências e imitações de marcas em ambientes simulados de redes sociais e promoções online.
 
 ## 🚀 Funcionalidades do Echofy
 
