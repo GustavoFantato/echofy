@@ -19,10 +19,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkCurrentPage = () => {
         const currentPageUrl = window.location.href;
-        if (fakeUrlDatabase.includes(currentPageUrl) && alertOverlay) {
+        const pathname = window.location.pathname;
+        
+        // Debug - pode ser removido depois
+        console.log('Checking page:', currentPageUrl);
+        console.log('Pathname:', pathname);
+        
+        // Verificação genérica que funciona tanto local quanto online
+        const isInfluencerFakePage = currentPageUrl.includes('influencerfake/influencerfake.html') || 
+                                   currentPageUrl.includes('influencerfake.html') ||
+                                   pathname.includes('influencerfake/influencerfake.html') ||
+                                   pathname.endsWith('influencerfake.html');
+        const isNetflixPromoPage = currentPageUrl.includes('netflix/netflix-promo.html') ||
+                                   currentPageUrl.includes('netflix-promo.html') ||
+                                   pathname.includes('netflix/netflix-promo.html') ||
+                                   pathname.endsWith('netflix-promo.html');
+        const isMonksFakePage = currentPageUrl.includes('monksfake/monksfake.html') ||
+                               currentPageUrl.includes('monksfake.html') ||
+                               pathname.includes('monksfake/monksfake.html') ||
+                               pathname.endsWith('monksfake.html');
+        
+        const shouldShowAlert = fakeUrlDatabase.includes(currentPageUrl) || 
+                               isInfluencerFakePage || 
+                               isNetflixPromoPage || 
+                               isMonksFakePage;
+        
+        console.log('Should show alert:', shouldShowAlert, 'isInfluencerFakePage:', isInfluencerFakePage);
+        
+        if (shouldShowAlert && alertOverlay) {
+            console.log('Showing alert for influencer fake page');
             // Personalizar mensagem baseada na página
-            if (currentPageUrl.includes('netflix')) {
+            if (isNetflixPromoPage) {
                 alertMessage.textContent = 'ALERTA: Página suspeita da Netflix detectada. Promoções não oficiais podem ser golpes.';
+            } else if (isInfluencerFakePage) {
+                alertMessage.textContent = 'ALERTA: Perfil suspeito detectado. Este perfil pode estar imitando uma marca oficial.';
             } else {
                 alertMessage.textContent = 'Esse link foi constatado como suspeito na nossa base de dados.';
             }
@@ -31,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alertTimeout = setTimeout(() => {
                 alertOverlay.classList.add('phishing-alert-hidden');
             }, 7000);
+        } else if (!alertOverlay) {
+            console.log('Alert overlay element not found!');
         }
     };
     
