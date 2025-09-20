@@ -655,13 +655,98 @@ img {
         height: 150px; /* Altura reduzida para telas muito pequenas */
     }
 }
-    }
     
     .posts-grid {
         grid-template-columns: 1fr;
     }
-}
     .posts-grid {
         grid-template-columns: 1fr;
     }
+
+/* --- NOVOS ESTILOS PARA O POPUP DE ALERTA VISUAL --- */
+
+/* A sobreposição escura que cobre a página inteira */
+#phishing-alert-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: block;
+    z-index: 2000; /* Garante que fique acima de tudo */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe para esconder o popup */
+.phishing-alert-hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede cliques quando estiver escondido */
+}
+
+/* O popup em si */
+#phishing-alert-popup {
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    max-width: 350px;
+    width: 350px;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #ffc107;
+}
+
+/* Efeito de "slide" ao aparecer */
+.phishing-alert-hidden #phishing-alert-popup {
+    transform: translateX(100%);
+}
+
+/* Ícone de alerta "!" */
+.alert-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ffc107; /* Amarelo alerta */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 auto 20px auto;
+    border: 4px solid #fff;
+}
+
+#phishing-alert-popup h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#phishing-alert-popup p {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Botão de fechar (X) */
+#phishing-alert-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#phishing-alert-close-btn:hover {
+    color: #333;
 }

@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png" type="image/png">
+
     <title>Instagram</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/@google/generative-ai/dist/files/generative-ai.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
         <nav class="sidebar">
             <div class="logo">
                 <h2>Instagram</h2>
@@ -75,8 +77,6 @@
                 </a>
             </div>
         </nav>
-
-        <!-- Main Content -->
         <main class="main-content">
             <!-- Stories Section -->
             <div class="stories-container">
@@ -119,8 +119,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Posts Feed -->
             <div class="posts-container">
                 <!-- Post 1 -->
                 <article class="post" data-post-id="1">
@@ -129,9 +127,8 @@
                             <img src="/assets/imgs/monks.jpg" alt="User" class="post-avatar">
                             <div class="user-details">
                                 <a href="./monksfake/monksfake.html" class="username-link">
-                                    <span class="username">monksinbrazil</span>
+                                    <span class="username">monks_in_brazil</span>
                                 </a>
-                                <span class="verified-badge">✓</span>
                                 <span class="post-time">2 h</span>
                             </div>
                         </div>
@@ -168,7 +165,7 @@
                         </div>
                         <div class="post-caption">
                           <a href="./monksfake/monksfake.html" class="username-link">
-                            <span class="username">monks_in_brazil</span>
+                            <span class="username">monks_in_brazil</span></a>
                             <span class="caption-text">POV: Você descobriu a primeira agência do Brasil reconhecida pelo TikTok Marketing Partners Program 🏆🎉
 
 Mais do que um selo, é a prova de que aqui a criatividade se conecta com a cultura — e o resultado são campanhas que impactam em todas as etapas: do branding à venda no e-commerce.
@@ -325,21 +322,6 @@ Saiba mais no link na bio.</span>
                 </article>
             </div>
 
-            <div class="posts-grid">
-                <!-- Post 2 -->
-                <div class="post-item">
-                    <a href="influencerfake/influencerfake.html">
-                        <img src="https://picsum.photos/300/300?random=p2" alt="Post 2">
-                    </a>
-                    <div class="post-overlay">
-                        <div class="post-stats">
-                            <span><i class="fas fa-heart"></i> 2,567</span>
-                            <span><i class="fas fa-comment"></i> 156</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </main>
 
         <!-- Right Sidebar -->
@@ -348,10 +330,10 @@ Saiba mais no link na bio.</span>
                 <img src="https://picsum.photos/56/56?random=user" alt="Seu perfil" class="profile-pic">
                 <div class="profile-info">
                     <a href="#" class="profile-link">
-                        <span class="username">seu_usuario</span>
+                        <span class="username">Luana S</span>
                     </a>
 
-                    <span class="full-name">Seu Nome Completo</span>
+                    <span class="full-name">Luana Silva</span>
                 </div>
                 <button class="switch-btn">Mudar</button>
             </div>
@@ -367,10 +349,10 @@ Saiba mais no link na bio.</span>
                         <img src="https://picsum.photos/44/44?random=20" alt="Sugestão 1" class="suggestion-avatar">
                         <div class="suggestion-info">
                             <a href="#" class="profile-link">
-                                <span class="suggestion-username">usuario_sugerido1</span>
+                                <span class="suggestion-username">jose_lopes</span>
                             </a>
 
-                            <span class="suggestion-reason">Seguido por amigo_comum</span>
+                            <span class="suggestion-reason">Seguido por onovolab</span>
                         </div>
                         <button class="follow-btn">Seguir</button>
                     </div>
@@ -380,7 +362,7 @@ Saiba mais no link na bio.</span>
                         <div class="suggestion-info">
 
                             <a href="#" class="profile-link">
-                                <span class="suggestion-username">perfil_interessante</span>
+                                <span class="suggestion-username">mariaaa_</span>
                             </a>
 
                             <span class="suggestion-reason">Popular</span>
@@ -393,7 +375,7 @@ Saiba mais no link na bio.</span>
                         <div class="suggestion-info">
 
                             <a href="#" class="profile-link">
-                                <span class="suggestion-username">conta_criativa</span>
+                                <span class="suggestion-username">pedrinho_al</span>
                             </a>
 
                             <span class="suggestion-reason">Sugerido para você</span>
@@ -406,10 +388,12 @@ Saiba mais no link na bio.</span>
                         <div class="suggestion-info">
 
                             <a href="#" class="profile-link">
-                                <span class="suggestion-username">artista_digital</span>
+                                <span class="suggestion-username">dani.b34
+
+                                </span>
                             </a>
 
-                            <span class="suggestion-reason">Seguido por varios_amigos</span>
+                            <span class="suggestion-reason">Seguido por brino</span>
                         </div>
                         <button class="follow-btn">Seguir</button>
                     </div>
@@ -419,7 +403,7 @@ Saiba mais no link na bio.</span>
                         <div class="suggestion-info">
 
                             <a href="#" class="profile-link">
-                                <span class="suggestion-username">influencer_tech</span>
+                                <span class="suggestion-username">luis_hacker</span>
                             </a>
 
                             <span class="suggestion-reason">Novos do Facebook</span>
@@ -436,12 +420,37 @@ Saiba mais no link na bio.</span>
                     <a href="#">Meta Verified</a>
                 </div>
                 <div class="copyright">
-                    © 2025 Instagram Clone
+                    © 2025 Instagram
                 </div>
             </div>
         </aside>
     </div>
 
+    <button class="chatbot-fab">
+        <i class="fas fa-shield-alt"></i>
+    </button>
+
+    <div class="chatbot-popup">
+        <div class="chatbot-header">
+            <h3>Agente de Marca</h3>
+            <button class="chatbot-close-btn">&times;</button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-message bot-message">
+                <p>Olá! Sou sua agente de marca. Como posso ajudar a verificar a autenticidade hoje?</p>
+            </div>
+            </div>
+        <div class="chatbot-footer">
+            <button class="chat-option-btn" id="verify-company">Verificar Empresa</button>
+            <button class="chat-option-btn" id="verify-page">Verificar Página</button>
+        </div>
+    </div>
+
+    <div class="scan-overlay">
+        <div class="scan-line"></div>
+    </div>
+
+    <script type="module" src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
