@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "http://127.0.0.1:5500/monksfake/monksfake.html",
         "https://www.facebok.com/monksinbrazil.store/",
         "http://monks-vagas.xyz/oportunidade-imperdivel",
-        "http://127.0.0.1:5500/netflix/netflix-promo.html",
-        "http://127.0.0.1:5501/influencerfake/influencerfake.html"
+        "http://127.0.0.1:5500/netflix/netflix-promo.html"
+        // Removido: influencerfake.html - agora usa popup forçado específico
     ];
 
     const alertOverlay = document.getElementById('phishing-alert-overlay');
@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Pathname:', pathname);
         
         // Verificação genérica que funciona tanto local quanto online
-        const isInfluencerFakePage = currentPageUrl.includes('influencerfake/influencerfake.html') || 
-                                   currentPageUrl.includes('influencerfake.html') ||
-                                   pathname.includes('influencerfake/influencerfake.html') ||
-                                   pathname.endsWith('influencerfake.html');
+        // REMOVIDO: isInfluencerFakePage - agora usa popup forçado específico na própria página
         const isNetflixPromoPage = currentPageUrl.includes('netflix/netflix-promo.html') ||
                                    currentPageUrl.includes('netflix-promo.html') ||
                                    pathname.includes('netflix/netflix-promo.html') ||
@@ -40,19 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                pathname.endsWith('monksfake.html');
         
         const shouldShowAlert = fakeUrlDatabase.includes(currentPageUrl) || 
-                               isInfluencerFakePage || 
                                isNetflixPromoPage || 
                                isMonksFakePage;
         
-        console.log('Should show alert:', shouldShowAlert, 'isInfluencerFakePage:', isInfluencerFakePage);
+        console.log('Should show alert:', shouldShowAlert, 'isNetflixPromoPage:', isNetflixPromoPage, 'isMonksFakePage:', isMonksFakePage);
         
         if (shouldShowAlert && alertOverlay) {
-            console.log('Showing alert for influencer fake page');
+            console.log('Showing alert for page');
             // Personalizar mensagem baseada na página
             if (isNetflixPromoPage) {
                 alertMessage.textContent = 'ALERTA: Página suspeita da Netflix detectada. Promoções não oficiais podem ser golpes.';
-            } else if (isInfluencerFakePage) {
-                alertMessage.textContent = 'ALERTA: Perfil suspeito detectado. Este perfil pode estar imitando uma marca oficial.';
             } else {
                 alertMessage.textContent = 'Esse link foi constatado como suspeito na nossa base de dados.';
             }
