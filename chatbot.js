@@ -1,4 +1,4 @@
-// AÇÃO CORRETIVA: Importamos a classe diretamente de um CDN compatível com módulos
+// Importamos a classe diretamente de um CDN compatível com módulos
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,11 +16,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const GEMINI_API_KEY = 'AIzaSyDeiAgAXBbaaRreDVVDhPs8A2U3wjK7HkU';
     // =================================================================
 
+    // --- NOVA FUNÇÃO PARA FORMATAR A RESPOSTA DA IA ---
+    const formatResponseToHtml = (text) => {
+        // Converte **negrito** para <strong>negrito</strong>
+        let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Converte linhas que começam com * para itens de lista <li>
+        const listItems = html.match(/^\* (.*$)/gm);
+        if (listItems) {
+            const listHtml = '<ul>' + listItems.map(item => `<li>${item.substring(2)}</li>`).join('') + '</ul>';
+            // Substitui o texto original da lista pelo HTML da lista
+            html = html.replace(/^\* (.*$)/gm, '');
+            html = html.replace(/(\r\n|\n|\r){2,}/g, '$1').trim() + listHtml;
+        }
+        
+        // Substitui quebras de linha por <br> para manter a estrutura
+        return html.replace(/\n/g, '<br>');
+    };
+
     const addMessage = (text, sender) => {
         const messageDiv = document.createElement('div');
-        messageDiv.classList.add('chat-messaze', sender === 'bot' ? 'bot-message' : 'user-message');
+        messageDiv.classList.add('chat-message', sender === 'bot' ? 'bot-message' : 'user-message');
         const p = document.createElement('p');
-        p.textContent = text;
+        
+        if (sender === 'bot') {
+            // Usa a nova função para formatar a resposta do bot
+            p.innerHTML = formatResponseToHtml(text);
+        } else {
+            p.textContent = text;
+        }
+        
         messageDiv.appendChild(p);
         chatBody.appendChild(messageDiv);
         chatBody.scrollTop = chatBody.scrollHeight;
@@ -30,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let genAI;
     let model;
     try {
-        // AÇÃO CORRETIVA: Usamos a classe 'GoogleGenerativeAI' que importamos diretamente
         genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
         model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
     } catch (error) {
@@ -66,46 +90,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // O restante do código permanece exatamente o mesmo
     // Botão "Verificar Empresa"
     verifyCompanyBtn.addEventListener('click', () => {
-        const firstPostUsername = document.querySelector('.post .username');
-        let companyName = '';
+        addMessage("Iniciando detecção automática do perfil na página...", 'bot');
+        const pageUrl = window.location.href;
+        const pageHtmlSnippet = document.body.innerHTML.substring(0, 4000);
 
-        if (firstPostUsername) {
-            companyName = firstPostUsername.textContent.trim();
-            addMessage(`Detectei o perfil "${companyName}". Gostaria de analisá-lo?`, 'bot');
-            const prompt = `Como uma agente de marca, analise o perfil de Instagram "${companyName}". Verifique a existência de múltiplos perfis com nomes similares, procure por reclamações online sobre perfis falsos associados a este nome e analise a reputação geral para determinar o risco de ser uma página fraudulenta. Forneça uma conclusão clara.`;
-            callGeminiApi(prompt);
-        } else {
-            companyName = prompt("Não detectei um perfil automaticamente. Qual o nome da empresa ou marca que você deseja verificar?");
-            if (companyName && companyName.trim() !== '') {
-                addMessage(`Ok, vou verificar a empresa: ${companyName}`, 'user');
-                const prompt = `Como uma agente de marca, analise a empresa "${companyName}". Verifique a existência de múltiplos perfis, reclamações sobre perfis falsos e a reputação geral para determinar se é uma marca fraudulenta ou se existem páginas falsas se passando por ela.`;
-                callGeminiApi(prompt);
-            }
-        }
+        // --- PROMPT AINDA MAIS REFINADO PARA RESPOSTAS CURTAS ---
+        const prompt = `Como um agente de marca, identifique o perfil principal nos dados abaixo e analise sua autenticidade.
+        Dados:
+        - URL: "${pageUrl}"
+        - HTML: "${pageHtmlSnippet}"
+
+        Siga este formato de resposta OBRIGATORIAMENTE:
+        **Nome principal:** [Nome que você identificou]
+        **Análise de autenticidade:** A página parece [falsificada/legítima].
+        * [Motivo 1 em poucas palavras]
+        * [Motivo 2 em poucas palavras]
+        * [Motivo 3 em poucas palavras]`;
+        
+        callGeminiApi(prompt);
     });
 
     // Botão "Verificar Página"
     verifyPageBtn.addEventListener('click', () => {
-        addMessage("Ok, vou iniciar a análise desta página.", 'user');
-        
+        addMessage("Ok, vou iniciar a análise completa desta página.", 'user');
         scanOverlay.style.display = 'block';
         
         setTimeout(() => {
             scanOverlay.style.display = 'none';
             addMessage("Análise visual concluída. Enviando para o assistente...", 'bot');
             const pageUrl = window.location.href;
-            const pageContentSample = document.body.innerText.substring(0, 1000);
-            const prompt = `Como uma agente de marca, analise a autenticidade de uma página com base nos seguintes dados.
+            const pageContentSample = document.body.innerText.substring(0, 4000);
+
+            // --- PROMPT AINDA MAIS REFINADO PARA RESPOSTAS CURTAS ---
+            const prompt = `Como um agente de marca, analise a autenticidade da página abaixo.
+            Dados:
             - URL: "${pageUrl}"
-            - Amostra do conteúdo de texto: "${pageContentSample}"
-            Com base nesses dados, avalie os seguintes pontos:
-            1. A URL parece legítima ou suspeita?
-            2. O conteúdo (nomes de usuário, legendas) parece autêntico ou gerado de forma estranha?
-            3. Existem sinais de alerta comuns em páginas falsas?
-            Forneça uma conclusão sobre a probabilidade de esta página ser falsa.`;
+            - Conteúdo: "${pageContentSample}"
+
+            Siga este formato de resposta OBRIGATORIAMENTE:
+            **Análise de autenticidade:** A página parece [falsificada/legítima].
+            * [Motivo 1 em poucas palavras]
+            * [Motivo 2 em poucas palavras]
+            * [Motivo 3 em poucas palavras]`;
             callGeminiApi(prompt);
         }, 2000);
     });
