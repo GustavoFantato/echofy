@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análise de IA</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Dashboard de Análise de IA</h1>
+            <p>Dados coletados pela extensão em tempo real</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <div class="card chart-container">
+                <h2>Origem das Verificações de Falsidade</h2>
+                <canvas id="origemFalsidadeChart"></canvas>
+            </div>
+
+            <div class="card metrics-container">
+                <h2>Métricas Gerais</h2>
+                <div class="metric-item">
+                    <span class="metric-value">15,234</span>
+                    <span class="metric-label">Downloads da Extensão</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-value">48%</span>
+                    <span class="metric-label">% de Uso com Base nos Downloads</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-value">18%</span>
+                    <span class="metric-label">% de Páginas Falsas Detectadas</span>
+                </div>
+            </div>
+
+            <div class="card links-container">
+                <h2>Últimos Links Falsos Detectados</h2>
+                <ul class="fake-links-list">
+                    <li><a href="#" target="_blank">https://www.instagram.com/monks_in_brazil/</a></li>
+                    <li><a href="#" target="_blank">https://www.linkedin-careers.com/monksofficial/</a></li>
+                    <li><a href="#" target="_blank">https://www.facebok.com/monksinbrazil.store/</a></li>
+                    <li><a href="#" target="_blank">http://monks-vagas.xyz/oportunidade-imperdivel</a></li>
+                    <li><a href="#" target="_blank">https://www.instagram.com/suporte_monks_br/</a></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -878,3 +878,168 @@ input:focus {
 .chat-message li {
     margin-bottom: 4px;
 }
+/* --- NOVOS ESTILOS PARA O POPUP DE ALERTA VISUAL --- */
+
+/* A sobreposição escura que cobre a página inteira */
+#phishing-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Garante que fique acima de tudo */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe para esconder o popup */
+.phishing-alert-hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede cliques quando estiver escondido */
+}
+
+/* O popup em si */
+#phishing-alert-popup {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito de "zoom" ao aparecer */
+.phishing-alert-hidden #phishing-alert-popup {
+    transform: scale(0.9);
+}
+
+/* Ícone de alerta "!" */
+.alert-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ffc107; /* Amarelo alerta */
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 auto 20px auto;
+    border: 4px solid #fff;
+}
+
+#phishing-alert-popup h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#phishing-alert-popup p {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Botão de fechar (X) */
+#phishing-alert-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#phishing-alert-close-btn:hover {
+    color: #333;
+}
+/* --- NOVOS ESTILOS PARA O POPUP DE ALERTA (FORMATO NOTIFICAÇÃO/TOAST) --- */
+
+/* O container que posiciona o popup no canto */
+#phishing-alert-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999; /* Valor maior para garantir que fique acima de tudo */
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    pointer-events: auto; /* Permite clicar no popup */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* O popup em si, agora como um "toast" */
+#phishing-alert-popup {
+    background-color: #fff;
+    color: #333;
+    padding: 15px 40px 15px 20px; /* Mais espaço à direita para o botão 'X' */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: block; /* Mudado de flex para block */
+    border-left: 5px solid #dc3545; /* Borda vermelha para indicar perigo */
+    transition: opacity 0.3s ease-in-out; /* Apenas transição de opacidade */
+    pointer-events: auto; /* Permite interagir com o popup */
+    position: relative;
+    width: 300px;
+    min-height: 60px;
+    margin: 0; /* Remove qualquer margem que possa centralizar */
+}
+
+/* Classe para esconder o popup */
+.phishing-alert-hidden {
+    display: none !important;
+}
+
+#phishing-alert-popup p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Botão de fechar (X) */
+#phishing-alert-close-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+#phishing-alert-close-btn:hover {
+    color: #333;
+}
+
+/* Força o posicionamento correto do popup - regra mais específica */
+body #phishing-alert-overlay {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    margin: 0 !important;
+}
+
+body #phishing-alert-popup {
+    margin: 0 !important;
+    position: relative !important;
+}
+

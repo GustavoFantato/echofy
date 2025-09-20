@@ -1,0 +1,140 @@
+/* Importa uma fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-weight: 700;
+    color: #1a253c;
+}
+
+header p {
+    color: #777;
+}
+
+/* Layout principal em grid - AJUSTADO */
+.dashboard-grid {
+    display: grid;
+    /* Define um grid de 2 colunas de tamanho igual */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #1a253c;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Estilos específicos para o container do gráfico - AJUSTADO */
+.chart-container {
+    /* Ocupa a primeira coluna do grid */
+    grid-column: 1 / 2;
+    /* Damos uma altura máxima para o gráfico não estourar a tela */
+    max-height: 450px;
+}
+
+/* Estilos para as métricas */
+.metrics-container {
+    /* Ocupa a segunda coluna do grid */
+    grid-column: 2 / 3;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid #4a90e2;
+}
+
+.metric-item:last-child {
+    margin-bottom: 0;
+}
+
+.metric-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a253c;
+}
+
+.metric-label {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Estilos para a lista de links - AJUSTADO */
+.links-container {
+    /* Faz este card ocupar todas as colunas disponíveis (tela inteira) */
+    grid-column: 1 / -1;
+}
+
+.fake-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Aumentamos a altura máxima para a lista ficar maior */
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.fake-links-list li {
+    padding: 12px 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.fake-links-list li:last-child {
+    border-bottom: none;
+}
+
+.fake-links-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 400;
+    word-break: break-all;
+}
+
+.fake-links-list a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes para telas menores (celulares) */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        /* Em telas pequenas, volta a ser uma coluna só */
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container,
+    .metrics-container,
+    .links-container {
+        /* Garante que todos os itens ocupem a largura total */
+        grid-column: 1 / -1;
+    }
+}
