@@ -11,6 +11,7 @@ Echofy é um chatbot inteligente para análise de golpes digitais e verificaçã
 - **Análise técnica visual:** Avalia design, estrutura, formulários e práticas comerciais para identificar páginas falsas.
 - **Explicação educativa:** Apresenta evidências claras e objetivas sobre os riscos encontrados, ajudando o usuário a entender o golpe.
 - **Interface interativa:** O usuário pode solicitar análises específicas ou receber alertas automáticos durante a navegação.
+- **Verificação de veracidade de notícias:** Para impedir disseminação de desinformação, o plugin verifica se há fontes confiáveis que relatam o mesmo caso.
 
 ## 🔎 Tipos de Análise
 
