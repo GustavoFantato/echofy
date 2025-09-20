@@ -25,8 +25,8 @@ echofy/
 ├── index.html                # Ambiente de simulação (Instagram Clone)
 ├── chatbot.js                # Echofy: Chatbot de análise e alerta
 ├── assets/                   # Imagens e posts para simulação
-├── influencerfake/           # Página fake de influenciador
-├── monksfake/                # Página fake Monks
+├── influencerfake/           # Perfil fake da Netflix (instagram)
+├── monksfake/                # Perfil fake Monks (instagram)
 ├── netflix/                  # Página fake Netflix
 └── ...
 ```
