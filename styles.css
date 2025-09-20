@@ -513,6 +513,50 @@ body {
     font-size: 11px;
 }
 
+/* Ajustes para imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Ajustes para imagens nos stories */
+.story-avatar img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ajustes para imagens nos posts */
+.post-image img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+}
+
+/* Ajustes para imagens no grid de posts */
+.post-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsividade para imagens */
+@media (max-width: 768px) {
+    .story-avatar img {
+        object-fit: cover;
+    }
+
+    .post-image img {
+        object-fit: contain;
+    }
+
+    .post-item img {
+        object-fit: cover;
+    }
+}
+
 /* Responsividade */
 @media (max-width: 1264px) {
     .right-sidebar {
@@ -587,6 +631,37 @@ body {
         border-radius: 0;
         border-left: none;
         border-right: none;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .story-item {
+        min-width: 60px;
+    }
+    
+    .story-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .story-username {
+        font-size: 10px;
+    }
+    
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .post-user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .post-actions {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
