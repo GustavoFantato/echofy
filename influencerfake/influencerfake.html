@@ -7,6 +7,104 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="influencerfake-style.css">
+    
+    <!-- ESTILOS INLINE PARA GARANTIR POPUP DE PHISHING -->
+    <style>
+        /* Popup de phishing com máxima prioridade */
+        #phishing-alert-overlay {
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            z-index: 999999 !important;
+            width: auto !important;
+            height: auto !important;
+            background-color: transparent !important;
+            pointer-events: auto !important;
+            transition: opacity 0.3s ease-in-out !important;
+            display: block !important;
+        }
+
+        .phishing-alert-hidden {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        #phishing-alert-popup {
+            background-color: #fff !important;
+            color: #333 !important;
+            padding: 15px 40px 15px 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15) !important;
+            display: block !important;
+            border-left: 5px solid #dc3545 !important;
+            transition: opacity 0.3s ease-in-out !important;
+            pointer-events: auto !important;
+            position: relative !important;
+            width: 300px !important;
+            min-height: 60px !important;
+            margin: 0 !important;
+        }
+
+        #phishing-alert-popup p {
+            margin: 0 !important;
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+            color: #333 !important;
+        }
+
+        #phishing-alert-close-btn {
+            position: absolute !important;
+            top: 50% !important;
+            right: 10px !important;
+            transform: translateY(-50%) !important;
+            background: none !important;
+            border: none !important;
+            font-size: 24px !important;
+            color: #aaa !important;
+            cursor: pointer !important;
+            padding: 5px !important;
+            line-height: 1 !important;
+            transition: color 0.2s !important;
+        }
+
+        #phishing-alert-close-btn:hover {
+            color: #333 !important;
+        }
+
+        /* Force posicionamento correto */
+        body #phishing-alert-overlay {
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            left: auto !important;
+            margin: 0 !important;
+            z-index: 999999 !important;
+        }
+
+        body #phishing-alert-popup {
+            margin: 0 !important;
+            position: relative !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            #phishing-alert-overlay {
+                top: 10px !important;
+                right: 10px !important;
+            }
+            
+            #phishing-alert-popup {
+                width: 250px !important;
+                padding: 12px 35px 12px 15px !important;
+            }
+            
+            #phishing-alert-popup p {
+                font-size: 14px !important;
+            }
+        }
+    </style>
+    
     <script src="https://unpkg.com/@google/generative-ai/dist/files/generative-ai.js"></script>
 </head>
 <body>
@@ -333,5 +431,58 @@
     <script type="module" src="../chatbot.js"></script>
     <script src="../script.js"></script>
     <script src="influencerfake-script.js"></script>
+    
+    <!-- SCRIPT ESPECÍFICO PARA FORÇAR POPUP DE PHISHING -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Forçando exibição do popup de phishing na página influencer');
+            
+            // Força a exibição do popup após um pequeno delay
+            setTimeout(() => {
+                const alertOverlay = document.getElementById('phishing-alert-overlay');
+                const alertMessage = document.getElementById('phishing-alert-message');
+                const alertCloseBtn = document.getElementById('phishing-alert-close-btn');
+                
+                if (alertOverlay && alertMessage) {
+                    console.log('Elementos do popup encontrados, forçando exibição');
+                    
+                    // Define a mensagem específica para influencer
+                    alertMessage.textContent = 'ALERTA: Perfil suspeito detectado. Este perfil pode estar imitando uma marca oficial.';
+                    
+                    // Remove a classe que esconde o popup
+                    alertOverlay.classList.remove('phishing-alert-hidden');
+                    
+                    // Garante que está visível
+                    alertOverlay.style.display = 'block';
+                    alertOverlay.style.visibility = 'visible';
+                    alertOverlay.style.opacity = '1';
+                    
+                    console.log('Popup de phishing forçado a aparecer');
+                    
+                    // Adiciona comportamento do botão fechar
+                    if (alertCloseBtn) {
+                        alertCloseBtn.addEventListener('click', () => {
+                            console.log('Fechando popup');
+                            alertOverlay.classList.add('phishing-alert-hidden');
+                            alertOverlay.style.display = 'none';
+                        });
+                    }
+                    
+                    // Auto-fechar após 7 segundos
+                    setTimeout(() => {
+                        if (!alertOverlay.classList.contains('phishing-alert-hidden')) {
+                            alertOverlay.classList.add('phishing-alert-hidden');
+                            alertOverlay.style.display = 'none';
+                            console.log('Popup auto-fechado após 7 segundos');
+                        }
+                    }, 7000);
+                } else {
+                    console.log('Elementos do popup NÃO encontrados');
+                    console.log('alertOverlay:', alertOverlay);
+                    console.log('alertMessage:', alertMessage);
+                }
+            }, 500); // Delay de 500ms para garantir que tudo carregou
+        });
+    </script>
 </body>
 </html>
