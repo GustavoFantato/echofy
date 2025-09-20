@@ -23,7 +23,7 @@ body{
 .hero{
   position: relative;
   min-height: 100vh;
-  background: url('/assets/imgs/fundonetflix.png') center/cover no-repeat fixed;
+  background: url('../assets/imgs/fundonetflix.png') center/cover no-repeat fixed;
   display: flex;
   align-items: center;
   justify-content: center;
