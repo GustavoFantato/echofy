@@ -1,188 +1,95 @@
-# Instagram Clone
 
-Uma recriação fiel da interface do Instagram com imagens genéricas e conteúdo personalizável.
+# Echofy
 
-## 🚀 Funcionalidades
+Echofy é um chatbot inteligente para análise de golpes digitais e verificação de páginas suspeitas. Ele atua como assistente de segurança, detectando fraudes, inconsistências e imitações de marcas em ambientes simulados de redes sociais e promoções online.
 
-- ✅ Interface idêntica ao Instagram
-- ✅ Design responsivo
-- ✅ Stories interativos
-- ✅ Sistema de curtidas
-- ✅ Comentários funcionais
-- ✅ Sugestões de usuários
-- ✅ Sidebar de navegação
-- ✅ Fotos de perfil genéricas
-- ✅ Posts com conteúdo editável
+## 🚀 Funcionalidades do Echofy
+
+- **Análise automática de páginas:** Detecta golpes, imitações de marcas e inconsistências em perfis e promoções.
+- **Alertas proativos:** Exibe notificações quando o usuário acessa URLs suspeitas ou páginas conhecidas por golpes.
+- **Verificação de empresas e promoções:** Analisa se uma página representa de fato uma marca oficial (ex: Netflix, Monks) ou se há sinais de fraude.
+- **Análise técnica visual:** Avalia design, estrutura, formulários e práticas comerciais para identificar páginas falsas.
+- **Explicação educativa:** Apresenta evidências claras e objetivas sobre os riscos encontrados, ajudando o usuário a entender o golpe.
+- **Interface interativa:** O usuário pode solicitar análises específicas ou receber alertas automáticos durante a navegação.
+
+## 🔎 Tipos de Análise
+
+- **Análise Empresarial:** Verifica se a página representa uma empresa oficial, comparando nomes, domínios e práticas comerciais.
+- **Análise Técnica Visual:** Avalia elementos visuais, design, qualidade de imagens e presença de formulários suspeitos.
+- **Análise Geral de Segurança:** Procura inconsistências internas, divergências entre nome de perfil, usuário e links.
 
 ## 📁 Estrutura do Projeto
 
 ```
-raiaHackathon/
-├── index.html      # Estrutura principal da página
-├── styles.css      # Estilos da interface
-├── script.js       # Funcionalidades interativas
-└── README.md       # Este arquivo
+echofy/
+├── index.html                # Ambiente de simulação (Instagram Clone)
+├── chatbot.js                # Echofy: Chatbot de análise e alerta
+├── assets/                   # Imagens e posts para simulação
+├── influencerfake/           # Perfil fake da Netflix (instagram)
+├── monksfake/                # Perfil fake Monks (instagram)
+├── netflix/                  # Página fake Netflix
+└── ...
 ```
 
-## 🎨 Como Personalizar o Conteúdo
+## 💡 Como Usar
 
-### 📸 Alterar Fotos de Perfil
+1. Acesse a réplica do instagram pelo link: https://gustavofantato.github.io/echofy
+2. O Echofy pode ser ativado pelo ícone/flutuante ou por alertas automáticos.
+3. Solicite uma análise da página ou empresa usando os botões do chatbot.
+4. O Echofy apresentará uma análise detalhada e evidências dos riscos encontrados.
 
-As fotos de perfil usam o serviço Lorem Picsum. Para personalizar, substitua as URLs:
+## ⚠️ Objetivo 
 
-```html
-<!-- Exemplo atual -->
-<img src="https://picsum.photos/40/40?random=10" alt="User" class="post-avatar">
+O Echofy foi criado para conscientizar sobre golpes digitais, ensinar a identificar páginas falsas e promover a segurança online.
 
-<!-- Para usar uma imagem específica -->
-<img src="caminho/para/sua/imagem.jpg" alt="User" class="post-avatar">
+
+## 📁 Estrutura do Projeto
+
+```
+echofy/
+├── index.html                # Página principal (Instagram Clone)
+├── styles.css                # Estilos gerais
+├── script.js                 # Funcionalidades interativas do Instagram
+├── chatbot.js                # Chatbot de alerta de golpes
+├── assets/
+│   ├── imgs/                 # Imagens de perfis, posts e ícones
+│   ├── postshome/            # Posts da home
+│   ├── postsmonks/           # Posts do perfil Monks
+│   └── postsnetflix/         # Posts do perfil Netflix
+├── influencerfake/           # Página falsa de influenciador
+│   ├── influencerfake.html
+│   ├── influencerfake-style.css
+│   ├── influencerfake-script.js
+│   └── influencerfake-config.js
+├── monksfake/                # Página falsa Monks
+│   ├── monksfake.html
+│   ├── monksfake-style.css
+│   ├── monksfake-script.js
+│   └── monksfake-config.js
+├── netflix/                  # Página falsa Netflix
+│   ├── netflix-promo.html
+│   ├── netflix-promo.css
+│   └── netflix-promo.js
+└── README.md                 # Este arquivo
 ```
 
-### 🖼️ Personalizar Imagens dos Posts
+## 🧩 Módulos e Páginas
 
-Para alterar as imagens dos posts, edite as URLs no arquivo `index.html`:
+- **Instagram Clone** (`index.html`): Interface principal, simula feed, stories, curtidas e comentários.
+- **Influencer Fake** (`influencerfake/`): Página de influenciador com posts e stories falsos.
+- **Monks Fake** (`monksfake/`): Página de agência fake, com posts e destaques.
+- **Netflix Promo Fake** (`netflix/`): Página promocional falsa da Netflix, simulando golpes comuns.
+- **Echofy** (`chatbot.js`): Detecta URLs suspeitas e exibe alertas educativos.
 
-```html
-<!-- Localizar esta seção em cada post -->
-<div class="post-image">
-    <img src="https://picsum.photos/600/600?random=100" alt="Post content">
-</div>
 
-<!-- Substituir por -->
-<div class="post-image">
-    <img src="sua-imagem-personalizada.jpg" alt="Post content">
-</div>
-```
+## 📚 Créditos
 
-### ✏️ Editar Conteúdo dos Posts
+Desenvolvido por:
+ - Gustavo Fantato Fernandes
+ - Renan da Silva Blasques 
+ - Felipe Galvão Prazeres
+ - Rodrigo de Jesus
+ - 
+**Desenvolvido como proposta de solução do desafio proposto no Hackathon RAIA 2025**
 
-#### Alterar nome de usuário:
-```html
-<span class="username">fotografo_oficial</span>
-<!-- Altere para -->
-<span class="username">seu_novo_usuario</span>
-```
 
-#### Modificar legendas:
-```html
-<span class="caption-text">Uma bela paisagem capturada durante o pôr do sol 🌅 #fotografia #natureza #paisagem</span>
-<!-- Altere para -->
-<span class="caption-text">Sua nova legenda aqui! 😊 #hashtags #personalizadas</span>
-```
-
-#### Ajustar contadores de curtidas:
-```html
-<span>Curtido por <strong>usuario_123</strong> e <strong>outras 1.234 pessoas</strong></span>
-<!-- Altere os números e nomes -->
-<span>Curtido por <strong>seu_amigo</strong> e <strong>outras 999 pessoas</strong></span>
-```
-
-### 👥 Personalizar Sugestões de Usuários
-
-No sidebar direito, você pode editar:
-
-```html
-<div class="suggestion-item">
-    <img src="https://picsum.photos/44/44?random=20" alt="Sugestão 1" class="suggestion-avatar">
-    <div class="suggestion-info">
-        <span class="suggestion-username">usuario_sugerido1</span>
-        <span class="suggestion-reason">Seguido por amigo_comum</span>
-    </div>
-    <button class="follow-btn">Seguir</button>
-</div>
-```
-
-### 📱 Stories Personalizados
-
-Para personalizar os stories:
-
-```html
-<div class="story-item">
-    <div class="story-avatar">
-        <img src="https://picsum.photos/64/64?random=1" alt="Story 1">
-    </div>
-    <span class="story-username">pessoa_01</span>
-</div>
-```
-
-## 🛠️ Como Usar
-
-1. **Abra o arquivo `index.html`** em qualquer navegador web moderno
-2. **Para editar**: Abra os arquivos em um editor de código
-3. **Para personalizar imagens**: Substitua as URLs ou adicione suas próprias imagens na pasta do projeto
-
-## 🎯 Funcionalidades Interativas
-
-- **Curtir posts**: Clique no ícone de coração
-- **Comentar**: Digite no campo de comentário e pressione Enter
-- **Salvar posts**: Clique no ícone de bookmark
-- **Seguir usuários**: Clique em "Seguir" nas sugestões
-- **Navegar**: Use os links da sidebar
-- **Stories**: Clique nos avatars dos stories
-
-## 📐 Layout Responsivo
-
-A interface se adapta automaticamente a diferentes tamanhos de tela:
-- **Desktop**: Layout completo com 3 colunas
-- **Tablet**: Sidebar compacta
-- **Mobile**: Layout simplificado para dispositivos móveis
-
-## 🎨 Personalização Avançada
-
-### Cores do Tema
-Para alterar as cores principais, edite as variáveis CSS em `styles.css`:
-
-```css
-/* Cores principais do Instagram */
-:root {
-    --primary-color: #0095f6;
-    --secondary-color: #ed4956;
-    --text-color: #262626;
-    --border-color: #dbdbdb;
-    --background-color: #fafafa;
-}
-```
-
-### Adicionar Novos Posts
-Para adicionar mais posts, copie a estrutura de um post existente e cole antes do fechamento de `.posts-container`:
-
-```html
-<!-- Copie toda esta estrutura -->
-<article class="post" data-post-id="4">
-    <!-- Conteúdo do post aqui -->
-</article>
-```
-
-### Modificar Fontes
-As fontes podem ser alteradas no topo do arquivo CSS:
-
-```css
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-```
-
-## 🖼️ Serviços de Imagens Recomendados
-
-- **Lorem Picsum**: `https://picsum.photos/largura/altura?random=numero`
-- **Placeholder.com**: `https://via.placeholder.com/larguraxaltura`
-- **Unsplash Source**: `https://source.unsplash.com/larguraxaltura/?tema`
-
-## 💡 Dicas de Personalização
-
-1. **Mantenha a consistência**: Use dimensões similares para imagens do mesmo tipo
-2. **Otimize as imagens**: Para melhor performance, use imagens otimizadas
-3. **Teste a responsividade**: Verifique como suas alterações ficam em diferentes dispositivos
-4. **Preserve a estrutura**: Mantenha as classes CSS para garantir que as funcionalidades continuem funcionando
-
-## 🔧 Solução de Problemas
-
-- **Imagens não carregam**: Verifique se as URLs estão corretas e acessíveis
-- **Layout quebrado**: Certifique-se de não ter removido classes CSS importantes
-- **Funcionalidades não funcionam**: Verifique se o arquivo `script.js` está sendo carregado
-
-## 📄 Licença
-
-Este projeto é uma recriação educacional da interface do Instagram para fins de aprendizado e demonstração.
-
----
-
-**Desenvolvido com ❤️ para demonstrar habilidades de desenvolvimento front-end**
