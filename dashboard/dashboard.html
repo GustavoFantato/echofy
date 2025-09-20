@@ -3,72 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Análise de IA</title>
-    
-    <link rel="stylesheet" href="dashboard.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dashboard de Dados da Echofy - Monksinbrazil</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai/dist/generative-ai.js"></script>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dashboard-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Card: Total de Detecções */
+        .detections-total {
+            background-color: #DC2626; /* Cor vermelha para indicar alerta */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .detections-total h2 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .detections-total p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .chart-image {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Card: Análise de Páginas (Fraudulentas/Não Fraudulentas/Erro) */
+        .analysis-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .analysis-box {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .analysis-box .value {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
+        .analysis-box .label {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .analysis-fraudulent { background-color: #FEE2E2; color: #991B1B; } /* Vermelho para fraudulento */
+        .analysis-safe { background-color: #D1FAE5; color: #065F46; } /* Verde para seguro */
+        .analysis-error { background-color: #FEF3C7; color: #92400E; } /* Amarelo para erro */
+        
+        /* Card: Últimas Páginas Reportadas */
+        .full-width-card {
+            grid-column: 1 / -1;
+        }
+
+        .reported-page-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .reported-page-item:not(:last-child) {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .reported-page-item .details .url {
+            font-weight: 500;
+            margin: 0 0 4px 0;
+            color: #1E40AF; /* Azul para links */
+            text-decoration: none;
+            word-break: break-all; /* Quebra de linha para URLs longas */
+        }
+        
+        .reported-page-item .details .url:hover {
+            text-decoration: underline;
+        }
+
+        .reported-page-item .details .timestamp {
+            color: #6B7280;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .reported-page-item .status-tag {
+            background-color: #FEE2E2;
+            color: #991B1B;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Dashboard de Análise de IA</h1>
-            <p>Dados coletados pela extensão em tempo real</p>
-        </header>
+    <div class="dashboard-wrapper">
+        <h1>Dashboard de Dados da Echofy - Monksinbrazil – Setembro 2025</h1>
+        
+        <div class="grid-container">
+            <div class="card">
+                <div class="detections-total">
+                    <h2>23</h2>
+                    <p>Páginas Fraudulentas Detectadas este Mês</p>
+                </div>
+                <h3 class="card-title">Detecções de Páginas Fraudulentas (Mensal)</h3>
+                <img src="https://quickchart.io/chart?c={type:'line',data:{labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago'],datasets:[{label:'Detecções',data:[5,8,4,10,12,15,20,23],fill:false,borderColor:'rgb(220,38,38)',tension:0.1}]}}" alt="Gráfico de linha mostrando o aumento de detecções de páginas fraudulentas de Janeiro a Agosto." class="chart-image">
+            </div>
 
-        <main class="dashboard-grid">
-            <div class="card chart-container">
-                <h2>Origem das Verificações de Falsidade</h2>
-                <canvas id="origemFalsidadeChart"></canvas>
-            </div>
-            <div class="card metrics-container">
-                <h2>Métricas Gerais</h2>
-                <div class="metric-item">
-                    <span class="metric-value" id="downloads-metric">15,234</span>
-                    <span class="metric-label">Downloads da Extensão</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-value" id="usage-metric">48%</span>
-                    <span class="metric-label">% de Uso com Base nos Downloads</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-value" id="fakes-metric">18%</span>
-                    <span class="metric-label">% de Páginas Falsas Detectadas</span>
+            <div class="card">
+                <h3 class="card-title">Análise de Páginas Verificadas</h3>
+                <div class="analysis-container">
+                    <div class="analysis-box analysis-fraudulent">
+                        <p class="value">8%</p>
+                        <p class="label">Fraudulentas</p>
+                    </div>
+                    <div class="analysis-box analysis-safe">
+                        <p class="value">90%</p>
+                        <p class="label">Não Fraudulentas</p>
+                    </div>
+                    <div class="analysis-box analysis-error">
+                        <p class="value">2%</p>
+                        <p class="label">Taxa de Erro</p>
+                    </div>
                 </div>
             </div>
-            <div class="card links-container">
-                <h2>Últimos Links Falsos Detectados</h2>
-                <ul class="fake-links-list">
-                    <li><a href="#" target="_blank">https://www.instagram.com/monks_in_brazil/</a></li>
-                    <li><a href="#" target="_blank">https://www.linkedin-careers.com/monksofficial/</a></li>
-                    <li><a href="#" target="_blank">https://www.facebok.com/monksinbrazil.store/</a></li>
-                    <li><a href="#" target="_blank">http://monks-vagas.xyz/oportunidade-imperdivel</a></li>
-                    <li><a href="#" target="_blank">https://www.instagram.com/suporte_monks_br/</a></li>
-                </ul>
+
+            <div class="card full-width-card">
+                <h3 class="card-title">Últimas Páginas Reportadas (Setembro 2025)</h3>
+                <div class="reported-pages-list">
+                    <div class="reported-page-item">
+                        <div class="details">
+                            <a href="#" target="_blank" class="url">https://netflix.update-security.info/br/login/home</a>
+                            <p class="timestamp">20/09/2025 - 11:45</p>
+                        </div>
+                        <span class="status-tag">Fraudulenta</span>
+                    </div>
+                    <div class="reported-page-item">
+                        <div class="details">
+                            <a href="#" target="_blank" class="url">http://monks-in-brazil.acesso-vip.online/promo/monks_in_brazil</a>
+                            <p class="timestamp">19/09/2025 - 17:20</p>
+                        </div>
+                        <span class="status-tag">Fraudulenta</span>
+                    </div>
+                    <div class="reported-page-item">
+                        <div class="details">
+                            <a href="#" target="_blank" class="url">https://www.netflixx.com/SuaConta/billing-activity</a>
+                            <p class="timestamp">19/09/2025 - 09:12</p>
+                        </div>
+                        <span class="status-tag">Fraudulenta</span>
+                    </div>
+                     <div class="reported-page-item">
+                        <div class="details">
+                            <a href="#" target="_blank" class="url">http://loja.monksinbrazil.net/oferta-exclusiva</a>
+                            <p class="timestamp">18/09/2025 - 20:05</p>
+                        </div>
+                        <span class="status-tag">Fraudulenta</span>
+                    </div>
+                    <div class="reported-page-item">
+                        <div class="details">
+                            <a href="#" target="_blank" class="url">https://www.bancoreal.com.br/internet-banking/</a>
+                            <p class="timestamp">18/09/2025 - 15:30</p>
+                        </div>
+                        <span class="status-tag" style="background-color: #D1FAE5; color: #065F46;">Segura</span>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
 
-    <button class="dashboard-chatbot-fab">
-        <i class="fas fa-comment-dots"></i>
-    </button>
-    <div class="dashboard-chatbot-popup hidden">
-        <div class="chatbot-header">
-            <h3>Assistente do Dashboard</h3>
-            <button class="chatbot-close-btn">&times;</button>
-        </div>
-        <div class="chatbot-body" id="dashboard-chat-body">
-            <div class="chat-message bot-message"><p>Olá! Como posso ajudar a analisar os dados de hoje?</p></div>
-        </div>
-        <div class="chatbot-footer">
-            <button class="chat-option-btn" id="summarize-data-btn">Resumir Dados do Dashboard</button>
-        </div>
-    </div>
-
-    <script src="dashboard.js"></script>
 </body>
 </html>
