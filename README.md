@@ -42,13 +42,6 @@ echofy/
 
 O Echofy foi criado para conscientizar sobre golpes digitais, ensinar a identificar páginas falsas e promover a segurança online.
 
-## 📚 Créditos
-
-Desenvolvido por:
- - Gustavo Fantato Fernandes
- - Renan da Silva Blasques 
- - Felipe Galvão Prazeres
- - Rodrigo de Jesus
 
 ## 📁 Estrutura do Projeto
 
@@ -89,4 +82,14 @@ echofy/
 - **Echofy** (`chatbot.js`): Detecta URLs suspeitas e exibe alertas educativos.
 
 
+## 📚 Créditos
+
+Desenvolvido por:
+ - Gustavo Fantato Fernandes
+ - Renan da Silva Blasques 
+ - Felipe Galvão Prazeres
+ - Rodrigo de Jesus
+ - 
 **Desenvolvido como proposta de solução do desafio proposto no Hackathon RAIA 2025**
+
+
