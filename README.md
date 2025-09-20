@@ -1,42 +1,75 @@
-# Instagram Clone
 
-Uma recriação fiel da interface do Instagram com imagens genéricas e conteúdo personalizável.
+# Echofy
+
+Projeto web que simula ambientes de redes sociais e páginas promocionais, com foco em educação sobre golpes digitais e análise de páginas falsas. Inclui clones do Instagram, páginas de influenciadores, promoções falsas e um chatbot de alerta.
 
 ## 🚀 Funcionalidades
 
-- ✅ Interface idêntica ao Instagram
-- ✅ Design responsivo
-- ✅ Stories interativos
-- ✅ Sistema de curtidas
-- ✅ Comentários funcionais
-- ✅ Sugestões de usuários
-- ✅ Sidebar de navegação
-- ✅ Fotos de perfil genéricas
-- ✅ Posts com conteúdo editável
+- Clone do Instagram com interface fiel e interativa
+- Páginas falsas de influenciadores e promoções (Monks, Netflix, etc.)
+- Chatbot de alerta para golpes digitais
+- Sistema de curtidas, comentários e stories
+- Design responsivo e moderno
+- Assets visuais para posts, perfis e promoções
 
 ## 📁 Estrutura do Projeto
 
 ```
-raiaHackathon/
-├── index.html      # Estrutura principal da página
-├── styles.css      # Estilos da interface
-├── script.js       # Funcionalidades interativas
-└── README.md       # Este arquivo
+echofy/
+├── index.html                # Página principal (Instagram Clone)
+├── styles.css                # Estilos gerais
+├── script.js                 # Funcionalidades interativas do Instagram
+├── chatbot.js                # Chatbot de alerta de golpes
+├── assets/
+│   ├── imgs/                 # Imagens de perfis, posts e ícones
+│   ├── postshome/            # Posts da home
+│   ├── postsmonks/           # Posts do perfil Monks
+│   └── postsnetflix/         # Posts do perfil Netflix
+├── influencerfake/           # Página falsa de influenciador
+│   ├── influencerfake.html
+│   ├── influencerfake-style.css
+│   ├── influencerfake-script.js
+│   └── influencerfake-config.js
+├── monksfake/                # Página falsa Monks
+│   ├── monksfake.html
+│   ├── monksfake-style.css
+│   ├── monksfake-script.js
+│   └── monksfake-config.js
+├── netflix/                  # Página falsa Netflix
+│   ├── netflix-promo.html
+│   ├── netflix-promo.css
+│   └── netflix-promo.js
+└── README.md                 # Este arquivo
 ```
 
-## 🎨 Como Personalizar o Conteúdo
+## 🧩 Módulos e Páginas
 
-### 📸 Alterar Fotos de Perfil
+- **Instagram Clone** (`index.html`): Interface principal, simula feed, stories, curtidas e comentários.
+- **Influencer Fake** (`influencerfake/`): Página de influenciador com posts e stories falsos.
+- **Monks Fake** (`monksfake/`): Página de agência fake, com posts e destaques.
+- **Netflix Promo Fake** (`netflix/`): Página promocional falsa da Netflix, simulando golpes comuns.
+- **Chatbot de Alerta** (`chatbot.js`): Detecta URLs suspeitas e exibe alertas educativos.
 
-As fotos de perfil usam o serviço Lorem Picsum. Para personalizar, substitua as URLs:
+## 🎨 Personalização
 
-```html
-<!-- Exemplo atual -->
-<img src="https://picsum.photos/40/40?random=10" alt="User" class="post-avatar">
+- As imagens dos perfis e posts podem ser trocadas facilmente nas pastas `assets/imgs`, `postshome`, `postsmonks` e `postsnetflix`.
+- Os textos, nomes de usuários e estatísticas dos perfis são configuráveis nos arquivos `*-config.js` de cada página fake.
 
-<!-- Para usar uma imagem específica -->
-<img src="caminho/para/sua/imagem.jpg" alt="User" class="post-avatar">
-```
+## 💡 Como Executar
+
+1. Clone o repositório
+2. Abra o arquivo `index.html` ou qualquer página fake diretamente no navegador
+3. Navegue entre as páginas para explorar as simulações
+
+## ⚠️ Objetivo Educacional
+
+Este projeto foi criado para fins de conscientização sobre golpes digitais, simulação de ambientes suspeitos e treinamento de análise de páginas falsas. Nenhuma página representa empresas reais.
+
+## 📚 Créditos
+
+- Desenvolvido por Gustavo Fantato e colaboradores
+- Icons: FontAwesome
+- Imagens: Assets próprios e placeholders
 
 ### 🖼️ Personalizar Imagens dos Posts
 
