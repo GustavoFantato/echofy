@@ -655,3 +655,95 @@ img {
         height: 150px; /* Altura reduzida para telas muito pequenas */
     }
 }
+
+/* ===== ESTILOS DO POPUP DE PHISHING ===== */
+#phishing-alert-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    pointer-events: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe para esconder o popup */
+.phishing-alert-hidden {
+    display: none !important;
+}
+
+/* O popup em si */
+#phishing-alert-popup {
+    background-color: #fff;
+    color: #333;
+    padding: 15px 40px 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: block;
+    border-left: 5px solid #dc3545;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: auto;
+    position: relative;
+    width: 300px;
+    min-height: 60px;
+    margin: 0;
+}
+
+#phishing-alert-popup p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Botão de fechar (X) */
+#phishing-alert-close-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+#phishing-alert-close-btn:hover {
+    color: #333;
+}
+
+/* Força o posicionamento correto do popup */
+body #phishing-alert-overlay {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    margin: 0 !important;
+}
+
+body #phishing-alert-popup {
+    margin: 0 !important;
+    position: relative !important;
+}
+
+/* Responsive para popup de phishing */
+@media (max-width: 480px) {
+    #phishing-alert-overlay {
+        top: 10px;
+        right: 10px;
+    }
+    
+    #phishing-alert-popup {
+        width: 250px;
+        padding: 12px 35px 12px 15px;
+    }
+    
+    #phishing-alert-popup p {
+        font-size: 14px;
+    }
+}
