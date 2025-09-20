@@ -654,15 +654,6 @@ img {
     .post-item {
         height: 150px; /* Altura reduzida para telas muito pequenas */
     }
-}
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-
 /* --- NOVOS ESTILOS PARA O POPUP DE ALERTA VISUAL --- */
 
 /* A sobreposição escura que cobre a página inteira */
@@ -749,4 +740,4 @@ img {
 
 #phishing-alert-close-btn:hover {
     color: #333;
-}
+}}
